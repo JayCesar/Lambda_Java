@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Locale;
 
 import entities.Product;
-import util.ProductPredicate;
 
 public class Program {
 
@@ -19,8 +18,9 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		// Removendo todos que tem 100 ou mais de preço
-		list.removeIf(new ProductPredicate());
+		// Referencia pra método
+		// Coloco da classe onde o método está, e depois :: para acessar o método (é aceito também em Lambda)
+		list.removeIf(Product::staticProductPredicate);
 		list.forEach(p -> System.out.println(p));
 		
 	}
