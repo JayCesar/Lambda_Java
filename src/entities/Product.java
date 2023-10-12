@@ -28,14 +28,9 @@ public class Product{
 		this.price = price;
 	}
 	
-	// versão estática
-	public static boolean staticProductPredicate(Product p) {
-		return  p.getPrice() >= 100;
-	}
-	
-	// versão não estática
-	public boolean nonStaticProductPredicate() {
-		return  this.getPrice() >= 100;
+	// Método estático
+	public static void staticPriceUpdate(Product p) {
+		p.setPrice(p.getPrice() * 1.1);
 	}
 	
 	@Override

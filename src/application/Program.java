@@ -5,7 +5,6 @@ import java.util.List;
 import java.util.Locale;
 
 import entities.Product;
-import util.PriceUpdate;
 
 public class Program {
 
@@ -19,8 +18,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		// Consumer: Implementação da interface
-		list.forEach(new PriceUpdate()); // Assim eu eu vou aplicar esse 'consumer' para cada elemento da lista
+		// Consumer: Referência de método com método estático
+		list.forEach(Product::staticPriceUpdate); 
 		list.forEach(System.out::println); // Outra foram de imprimir
 		
 	}
