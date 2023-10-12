@@ -14,7 +14,9 @@ public class Program {
 		
 		System.out.println(Arrays.toString(st1.toArray()));
 		
+		Stream<String> st2 = Stream.of("Maria", "Alex", "Bob");
 		
+		System.out.println(Arrays.toString(st2.toArray()));
 		
 	}
 }
