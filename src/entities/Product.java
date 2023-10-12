@@ -29,13 +29,8 @@ public class Product{
 	}
 	
 	// Método estático
-	public static void staticPriceUpdate(Product p) {
-		p.setPrice(p.getPrice() * 1.1);
-	}
-	
-	// Método NÃO estático
-	public void nonStaticPriceUpdate() {
-		price = getPrice() * 1.1;
+	public static String staticUpperCaseName(Product p) {
+		return p.getName().toUpperCase();
 	}
 	
 	@Override

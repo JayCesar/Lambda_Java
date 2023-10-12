@@ -20,10 +20,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		// FUNCTION: Implementação a Interface (usando Stream)
-		List<String> names = list.stream().map(new UpperCaseName()).collect(Collectors.toList());
-		// A função map aplica uma função pra cada elemento da stream, gerando uma nova stream com os elementos transformados
-		// O map alica a função que tiver dentro dela pra cada elemento da lista
+		// FUNCTION: Reference Method com método estático (preciso usar a referência da classe)
+		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
 		names.forEach(System.out::println);
 	}
 }
