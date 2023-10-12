@@ -28,11 +28,15 @@ public class Product{
 		this.price = price;
 	}
 	
-	// 
+	// versão estática
 	public static boolean staticProductPredicate(Product p) {
 		return  p.getPrice() >= 100;
 	}
 	
+	// versão não estática
+	public boolean nonStaticProductPredicate() {
+		return  this.getPrice() >= 100;
+	}
 	
 	@Override
 	public String toString() {

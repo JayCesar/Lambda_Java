@@ -18,9 +18,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		// Referencia pra método
-		// Coloco da classe onde o método está, e depois :: para acessar o método (é aceito também em Lambda)
-		list.removeIf(Product::staticProductPredicate);
+		// Referêncîa com método não estático
+		list.removeIf(Product::nonStaticProductPredicate);
 		list.forEach(p -> System.out.println(p));
 		
 	}
