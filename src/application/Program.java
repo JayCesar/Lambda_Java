@@ -18,5 +18,15 @@ public class Program {
 		
 		System.out.println(Arrays.toString(st2.toArray()));
 		
+		Stream<Integer> st3 = Stream.iterate(0, x -> x + 2);
+		// Primeiro elemento 0
+		// Segundo é a função que vai gerar a stream
+		System.out.println(Arrays.toString(st3.limit(10).toArray()));
+		// Esse limit é uma short-circuit
+		
+		// Sequêcia de fibonacci
+		Stream<Long> st4 = Stream.iterate(new Long[] {0L, 1L}, p -> new Long[] {p[1], p[0] + p[1]}).map(p -> p[0]);
+		System.out.println(Arrays.toString(st4.limit(10).toArray()));
+		
 	}
 }
