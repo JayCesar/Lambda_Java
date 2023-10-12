@@ -20,8 +20,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		// FUNCTION: Reference Method com método estático (preciso usar a referência da classe)
-		List<String> names = list.stream().map(Product::staticUpperCaseName).collect(Collectors.toList());
+		// FUNCTION: Reference Method com método NÃO estático (preciso usar a referência da classe)
+		List<String> names = list.stream().map(Product::nonStaticUpperCaseName).collect(Collectors.toList());
 		names.forEach(System.out::println);
 	}
 }
