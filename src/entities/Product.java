@@ -28,16 +28,9 @@ public class Product{
 		this.price = price;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Product [name=" + name + ", price=" + price + "]";
 	}
-
-	//@Override
-	//public int compareTo(Product p) {
-		//return name.toUpperCase().compareTo(p.getName().toUpperCase());
-	//}
-	// Só é possível usar o Collections quando o objeto tem o comarable inplementado!
 
 }
