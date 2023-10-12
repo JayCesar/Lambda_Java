@@ -18,8 +18,8 @@ public class Program {
 		list.add(new Product("Tablet", 350.50));
 		list.add(new Product("HD Case", 80.90));
 		
-		// Consumer: Referência de método com método estático
-		list.forEach(Product::staticPriceUpdate); 
+		// Consumer: Referência de método com método NÃO estático
+		list.forEach(Product::nonStaticPriceUpdate); 
 		list.forEach(System.out::println); // Outra foram de imprimir
 		
 	}
