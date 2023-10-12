@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import entities.Product;
@@ -17,7 +18,16 @@ public class Program {
 		
 		// Collections.sort(list); // Só é possível quando o objeto tem o comparable implementado
 		
-		list.sort(new MyComparator());
+		// Assim eu implementei uma classe anônima
+		// Assim não preciso criar uma classe a parte
+		Comparator<Product> comp = new Comparator<Product>() { // Criei uma variável que será do tipo da calsse comparator que é anônima
+			public int compare(Product p1, Product p2) {
+				return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+			}
+		};
+		
+		list.sort(comp);
+
 		
 		for (Product p : list) System.out.println(p);
 		
