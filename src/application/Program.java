@@ -1,29 +1,18 @@
 package application;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
-
-import entities.Product;
-import util.ProductService;
+import java.util.stream.Stream;
 
 public class Program {
 
 	public static void main(String[] args) {
 		
-		Locale.setDefault(Locale.US);
-		List<Product> list = new ArrayList<>();
+		List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
 		
-		list.add(new Product("Tv", 900.00));
-		list.add(new Product("Mouse", 50.00));
-		list.add(new Product("Tablet", 350.50));
-		list.add(new Product("HD Case", 80.90));
+		Stream<Integer> st1 = list.stream();
 		
-		ProductService ps = new ProductService();
-		
-		double sum = ps.filteredSum(list, p -> p.getName().charAt(0) == 'T');
-		
-		System.out.println("Sum = " + String.format("%.2f", sum));
+		System.out.println(Arrays.toString(st1.toArray()));
 		
 	}
 }
