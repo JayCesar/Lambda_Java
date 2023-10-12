@@ -10,25 +10,21 @@ public class Program {
 
 	public static void main(String[] args) {
 		
-		List<Product> list = new ArrayList<>(); // A estrutura List possui um método COmaprator, logo não preciso por no produto o comparable
+		List<Product> list = new ArrayList<>(); 
 		
 		list.add(new Product("TV", 900.00));
 		list.add(new Product("Notebook", 1200.00));
 		list.add(new Product("Tablet", 450.00));
 		
-		// Collections.sort(list); // Só é possível quando o objeto tem o comparable implementado
-		
-		// Assim eu implementei uma classe anônima
-		// Assim não preciso criar uma classe a parte
-		Comparator<Product> comp = new Comparator<Product>() { // Criei uma variável que será do tipo da calsse comparator que é anônima
-			public int compare(Product p1, Product p2) {
-				return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-			}
+		// Agora eu criei uma expressão lambda
+		// Aqui eu defini uma função anônima (arrow function) - de um lado vem os parâmetros e no lado a implementação da função
+		Comparator<Product> comp = (p1, p2) -> {
+			return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
 		};
-		
+		// Meu com será uma fnção que receberá dois  argumentos p1 e p2 e a implementação é o que estará entre as chaves;
+	
 		list.sort(comp);
 
-		
 		for (Product p : list) System.out.println(p);
 		
 	}
