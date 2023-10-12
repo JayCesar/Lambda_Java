@@ -18,9 +18,8 @@ public class Program {
 		
 		// Agora eu criei uma expressão lambda
 		// Aqui eu defini uma função anônima (arrow function) - de um lado vem os parâmetros e no lado a implementação da função
-		Comparator<Product> comp = (p1, p2) -> {
-			return p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
-		};
+		Comparator<Product> comp = (p1, p2) -> p1.getName().toUpperCase().compareTo(p2.getName().toUpperCase());
+	
 		// Meu com será uma fnção que receberá dois  argumentos p1 e p2 e a implementação é o que estará entre as chaves;
 	
 		list.sort(comp);
