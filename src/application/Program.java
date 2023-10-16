@@ -10,58 +10,53 @@ import java.util.Locale;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import entities.Product;
+import entities.Person;
 
 public class Program {
 	
-	/*
-	Fazer um programa para ler um conjunto de produtos a partir de um
-	arquivo em formato .csv (suponha que exista pelo menos um produto).
-	Em seguida mostrar o preço médio dos produtos. Depois, mostrar os
-	nomes, em ordem decrescente, dos produtos que possuem preço
-	inferior ao preço médio
-	*/
-	
+	// Exercício de Fixação
 
 	public static void main(String[] args) {
 		
 		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.print("Enter full file path: ");
 		String path = sc.nextLine();
 		// D:\\workspace\\ws-spring\\Lambda\\bin\\files\\file.txt
 		
 		try (BufferedReader br = new BufferedReader(new FileReader(path))) {
 
-			List<Product> list = new ArrayList<>();
-			
+			List<Person> list = new ArrayList<>();
+
 			String line = br.readLine();
 			while (line != null) {
 				String[] fields = line.split(",");
-				list.add(new Product(fields[0], Double.parseDouble(fields[1])));
+				list.add(new Person(fields[0], fields[1], Double.parseDouble(fields[2])));
 				line = br.readLine();
 			}
 			
-			// Average
-			double avg = list.stream()
-					.map(p -> p.getPrice())
-					.reduce(0.0, (x,y) -> x + y) / list.size();
+			System.out.print("Enter salary: ");
+			Double inputSalary = sc.nextDouble();
 			
-			System.out.println("Average price: " + String.format("%.2f", avg));
-			
-			
+			double sum = list.stream()
+					.filter(p -> p.getName().charAt(0) == 'M')
+					.map(p -> p.getSalary())
+					.reduce(0.0, (x,y) -> x + y);
+					
 			Comparator<String> comp = (s1, s2) -> s1.toUpperCase().compareTo(s2.toUpperCase());
 			
-			
 			List<String> names = list.stream()
-					.filter(p -> p.getPrice() < avg) // Eu selciono com base em algo
-					.map(p -> p.getName()) // Eu aplico
-					.sorted(comp.reversed()) // Default method do comparator
-					.collect(Collectors.toList()); 
+					.filter(p -> p.getSalary() > inputSalary)
+					.map(p -> p.getEmail())
+					.sorted(comp)
+					.collect(Collectors.toList());
 			
-			names.forEach(System.out::println); // Imprimo os nomes
+			names.forEach(System.out::println);
 			
+			System.out.print("Sum of salary of people whose name starts with 'M': " + String.format("%.2f", sum));
+			
+
 		} catch (IOException e) {
 			System.out.println("Error: " + e.getMessage());
 		}
